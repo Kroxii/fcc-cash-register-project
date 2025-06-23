@@ -10,3 +10,9 @@ let cid = [
     ["TWENTY", 20.0],
     ["ONE HUNDRED", 100.0]
 ];
+
+const displayChangeDue = document.getElementById("change-due");
+const cash = document.getElementById("cash");
+const purchaseBtn = document.getElementById("purchase-btn");
+const priceScreen = document.getElementById("price-screen");
+
