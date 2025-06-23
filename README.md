@@ -1,6 +1,6 @@
 # 🏦 Cash Register App
 
-🔗 **Live Website**: ()
+🔗 **Live Website**: (https://kroxii.github.io/fcc-cash-register-project/)
 
 > ✨ *In this project, I've created a Cash Register app that calculates and returns the change to the customer based on the price, cash provided, and available cash in the drawer.*
 
