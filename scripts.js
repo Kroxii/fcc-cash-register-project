@@ -36,3 +36,4 @@ const checkCashRegister = () => {
         cash.value = '';
         return;
     }
+};
