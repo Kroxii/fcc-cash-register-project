@@ -1,6 +1,6 @@
 # 🏦 Cash Register App
 
-🔗 **Live Website**: [https://idghim.github.io/fcc-Cash-Register-App/](https://idghim.github.io/fcc-Cash-Register-App/)
+🔗 **Live Website**: ()
 
 > ✨ *In this project, I've created a Cash Register app that calculates and returns the change to the customer based on the price, cash provided, and available cash in the drawer.*
 
