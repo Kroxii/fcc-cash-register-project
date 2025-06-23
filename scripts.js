@@ -15,4 +15,14 @@ const displayChangeDue = document.getElementById("change-due");
 const cash = document.getElementById("cash");
 const purchaseBtn = document.getElementById("purchase-btn");
 const priceScreen = document.getElementById("price-screen");
+const cashDrawerDisplay = document.getElementById("cash-drawer-display");
+
+const formatResults = (status, change) => {
+    displayChangeDue.innerHTML = `<p>${status}</p>`;
+    displayChangeDue.innerHTML += change
+    .map(
+        ([denominationName, amount]) => `<p>${denominationName}: $${amount}</p>`
+)
+.join('');
+};
 
