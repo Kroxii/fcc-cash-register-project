@@ -17,6 +17,7 @@ const purchaseBtn = document.getElementById("purchase-btn");
 const priceScreen = document.getElementById("price-screen");
 const cashDrawerDisplay = document.getElementById("cash-drawer-display");
 
+// Affiche le résultat de la transaction.
 const formatResults = (status, change) => {
     displayChangeDue.innerHTML = `<p>${status}</p>`;
     displayChangeDue.innerHTML += change
@@ -26,3 +27,12 @@ const formatResults = (status, change) => {
 .join('');
 };
 
+// Vérifie si le client a donné assez d'argent pour l'achat. Si non → Alerte.
+const checkCashRegister = () => {
+    const cashInCents = Math.round(Number(cash.value) * 100);
+    const priceInCents = Math.round(price * 100);
+    if (cashInCents < priceInCents) {
+        alert('Customer does not have enough cash.');
+        cash.value = '';
+        return;
+    }
