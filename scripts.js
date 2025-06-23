@@ -37,3 +37,15 @@ const checkCashRegister = () => {
         return;
     }
 };
+
+const btn = document.getElementById('toggle-dark');
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+});
+
+// Optionnel : activer le mode nuit selon la préférence système au chargement
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add('dark');
+  btn.textContent = '☀️';
+}
