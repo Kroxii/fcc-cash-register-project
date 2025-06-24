@@ -38,6 +38,23 @@ const checkCashRegister = () => {
     }
 };
 
+  if (cashInCents === priceInCents) {
+    displayChangeDue.innerHTML =
+      '<p>No change due - customer paid with exact cash</p>';
+    cash.value = '';
+    return;
+  }
+
+  let changeDue = cashInCents - priceInCents;
+  const reversedCid = [...cid]
+    .reverse()
+    .map(([denominationName, amount]) => [
+      denominationName,
+      Math.round(amount * 100)
+    ]);
+  const denominations = [10000, 2000, 1000, 500, 100, 25, 10, 5, 1];
+  const result = { status: 'OPEN', change: [] };
+  const totalCID = reversedCid.reduce((prev, [_, amount]) => prev + amount, 0);
 
 
 // Optionnel : activer le mode nuit selon la préférence système au chargement
