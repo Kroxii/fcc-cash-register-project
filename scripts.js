@@ -38,6 +38,7 @@ const checkCashRegister = () => {
     }
 };
 
+// Si le client paie le montant exact, afficher un message et arrêter la fonction.
   if (cashInCents === priceInCents) {
     displayChangeDue.innerHTML =
       '<p>No change due - customer paid with exact cash</p>';
@@ -45,7 +46,10 @@ const checkCashRegister = () => {
     return;
   }
 
+// Calcul du change à rendre.
   let changeDue = cashInCents - priceInCents;
+  
+  // On convertit chaque montant en centimes pour éviter les erreurs de flottants.
   const reversedCid = [...cid]
     .reverse()
     .map(([denominationName, amount]) => [
@@ -56,6 +60,8 @@ const checkCashRegister = () => {
   const result = { status: 'OPEN', change: [] };
   const totalCID = reversedCid.reduce((prev, [_, amount]) => prev + amount, 0);
 
+// Si le total du tiroir-caisse correspond exactement au change à rendre, 
+// on doit fermer le tiroir-caisse après la transaction.
   if (totalCID === changeDue) {
   result.status = 'CLOSED';
   }
