@@ -56,15 +56,7 @@ const checkCashRegister = () => {
   const result = { status: 'OPEN', change: [] };
   const totalCID = reversedCid.reduce((prev, [_, amount]) => prev + amount, 0);
 
+  if (totalCID === changeDue) {
+  result.status = 'CLOSED';
+  }
 
-// Optionnel : activer le mode nuit selon la préférence système au chargement
-const btn = document.getElementById('toggle-dark');
-btn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-});
-
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  document.body.classList.add('dark');
-  btn.textContent = '☀️';
-}

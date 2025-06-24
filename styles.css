@@ -16,55 +16,6 @@
   --circle-bg: #5b6ee1;
 }
 
-body.dark {
-  --primary-bg: #181a1b;
-  --secondary-bg: #23272a;
-  --accent: #339cff;
-  --accent-dark: #1976d2;
-  --text-main: #f4f4f9;
-  --text-light: #b0b8c1;
-  --border: #353b40;
-  --button-bg: #339cff;
-  --button-hover: #1976d2;
-  --input-bg: #23272a;
-  --input-border: #353b40;
-  --screen-bg: #181a1b;
-  --screen-text: #fff;
-  --footer-bg: #23272a;
-  --circle-bg: #339cff;
-}
-
-body.dark-mode {
-  background-color: #181818;
-  color: #f1f1f1;
-}
-
-body.dark-mode input,
-body.dark-mode button,
-body.dark-mode .container,
-body.dark-mode .top-display-screen-container,
-body.dark-mode .cash-drawer-display {
-  background-color: #232323;
-  color: #f1f1f1;
-  border-color: #444;
-}
-
-#toggle-dark {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.2s;
-  z-index: 100;
-}
-
-body.dark-mode #toggle-dark {
-  color: #ffe066;
-}
-
 body {
   background: var(--primary-bg);
   color: var(--text-main);
