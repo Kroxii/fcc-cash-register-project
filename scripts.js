@@ -48,8 +48,8 @@ const checkCashRegister = () => {
 
 // Calcul du change à rendre.
   let changeDue = cashInCents - priceInCents;
-  
-  // On convertit chaque montant en centimes pour éviter les erreurs de flottants.
+
+// On convertit chaque montant en centimes pour éviter les erreurs de flottants.
   const reversedCid = [...cid]
     .reverse()
     .map(([denominationName, amount]) => [
@@ -66,3 +66,26 @@ const checkCashRegister = () => {
   result.status = 'CLOSED';
   }
 
+for (let i = 0; i <= reversedCid.length; i++) {
+  if (changeDue >= denominations[i] && changeDue > 0) {
+    const [denominationName, total] = reversedCid[i];
+    const possibleChange = Math.min(total, changeDue);
+    const count = Math.floor(possibleChange / denominations[i]);
+    const amountInChange = count * denominations[i];
+    changeDue -= amountInChange;
+
+  if (count > 0) {
+    result.change.push([denominationName, amountInChange / 100]);
+    }
+  }
+}
+
+// Si le tiroir-caisse n'a pas assez de fonds pour rendre la monnaie, 
+// afficher un message d'erreur.
+  if (changeDue > 0) {
+    displayChangeDue.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>';
+    return;
+  }
+
+  formatResults(result.status, result.change);
+  updateUI(result.change);
