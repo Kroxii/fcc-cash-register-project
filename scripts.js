@@ -16,6 +16,7 @@ const cash = document.getElementById('cash');
 const purchaseBtn = document.getElementById('purchase-btn');
 const priceScreen = document.getElementById('price-screen');
 const cashDrawerDisplay = document.getElementById('cash-drawer-display');
+const toggleThemeBtn = document.getElementById('toggle-theme');
 
 // Affiche le résultat de la transaction.
 const formatResults = (status, change) => {
@@ -95,7 +96,7 @@ for (let i = 0; i <= reversedCid.length; i++) {
   updateUI(result.change);
 };
 
-
+// Fonction qui vérifie si un montant a été saisi avant de lancer la vérification du tiroir-caisse
 const checkResults = () => {
   if (!cash.value) {
     return;
@@ -103,6 +104,7 @@ const checkResults = () => {
   checkCashRegister();
 };
 
+// Met à jour l'affichage de l'interface utilisateur et le contenu du tiroir-caisse
 const updateUI = change => {
   const currencyNameMap = {
     PENNY: 'Pennies',
@@ -116,6 +118,8 @@ const updateUI = change => {
     'ONE HUNDRED': 'Hundreds'
   };
   
+// Si un change (monnaie à rendre) est fourni, on met à jour le tiroir-caisse
+  
    if (change) {
     change.forEach(([changeDenomination, changeAmount]) => {
       const targetArr = cid.find(
@@ -126,8 +130,13 @@ const updateUI = change => {
     });
   }
 
+// Réinitialise le champ de saisie du client
   cash.value = '';
+
+// Affiche le prix total à l'écran
   priceScreen.textContent = `Total: $${price}`;
+
+// Affiche le contenu actuel du tiroir-caisse
   cashDrawerDisplay.innerHTML = `<p><strong>Change in drawer:</strong></p>
     ${cid
       .map(
@@ -140,10 +149,20 @@ const updateUI = change => {
 
 purchaseBtn.addEventListener('click', checkResults);
 
+// Permet de valider avec la touche "Entrée" dans le champ de saisie
 cash.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     checkResults();
   }
+});
+
+
+// Ajoute un mode sombre à l'interface utilisateur
+toggleThemeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  toggleThemeBtn.textContent = document.body.classList.contains('dark-mode')
+    ? 'Light Mode'
+    : 'Dark Mode';
 });
 
 updateUI();

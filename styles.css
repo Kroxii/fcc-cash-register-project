@@ -167,3 +167,28 @@ footer {
   height: auto;
   z-index: 10;
 }
+
+body.dark-mode {
+  --primary-bg: #181824;
+  --secondary-bg: #23223a;
+  --accent: #8faaff;
+  --accent-dark: #b3c7ff;
+  --text-main: #f7f6fd;
+  --text-light: #b3b3c7;
+  --border: #35355a;
+  --button-bg: #3b3f8c;
+  --button-hover: #23223a;
+  --input-bg: #23223a;
+  --input-border: #35355a;
+  --screen-bg: #181824;
+  --screen-text: #8faaff;
+  --footer-bg: #23223a;
+  --circle-bg: #8faaff;
+}
+
+.dark-mode-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  z-index: 20;
+}
